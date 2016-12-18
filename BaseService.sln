@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseService", "BaseService\BaseService.csproj", "{EC4FABE5-468C-4A33-846A-CD02B9BA712C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseService.DataAccess", "BaseService.DataAccess\BaseService.DataAccess.csproj", "{255AA411-7056-428B-8F47-9553B26606AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		MaZ|Any CPU = MaZ|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC4FABE5-468C-4A33-846A-CD02B9BA712C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC4FABE5-468C-4A33-846A-CD02B9BA712C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC4FABE5-468C-4A33-846A-CD02B9BA712C}.MaZ|Any CPU.ActiveCfg = MaZ|Any CPU
+		{EC4FABE5-468C-4A33-846A-CD02B9BA712C}.MaZ|Any CPU.Build.0 = MaZ|Any CPU
+		{EC4FABE5-468C-4A33-846A-CD02B9BA712C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC4FABE5-468C-4A33-846A-CD02B9BA712C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{255AA411-7056-428B-8F47-9553B26606AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{255AA411-7056-428B-8F47-9553B26606AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{255AA411-7056-428B-8F47-9553B26606AB}.MaZ|Any CPU.ActiveCfg = MaZ|Any CPU
+		{255AA411-7056-428B-8F47-9553B26606AB}.MaZ|Any CPU.Build.0 = MaZ|Any CPU
+		{255AA411-7056-428B-8F47-9553B26606AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{255AA411-7056-428B-8F47-9553B26606AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
