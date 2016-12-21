@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BaseService.App_Start;
+using StructureMap;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,10 +18,14 @@ namespace BaseService
     {
         protected void Application_Start()
         {
+            IContainer container = IocConfig.Register(GlobalConfiguration.Configuration);
+
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+
+            // MaZ attn: for VIEW Stuff
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }

@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiCommandHandlers\BaseCommandHandler.cs" />
+    <Compile Include="ApiCommandHandlers\IApiCmdHandle.cs" />
     <Compile Include="ApiCommands\AbstractCommand.cs" />
     <Compile Include="ApiCommands\BaseCommand.cs" />
     <Compile Include="ApiCommands\UpdBaseDataCmd.cs" />
@@ -59,7 +61,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ApiCommandHandlers\" />
     <Folder Include="ApiResponseBuilders\" />
     <Folder Include="Services\" />
   </ItemGroup>

@@ -1,11 +1,12 @@
 ﻿using BaseService.DataAccess.ApiCommands;
 using BaseService.DataAccess.Exceptions;
-using Newtonsoft.Json.Linq;
+using BaseService.ExtensionMethods;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace BaseService.DataAccess.ApiCommandParsers
 {
@@ -13,13 +14,25 @@ namespace BaseService.DataAccess.ApiCommandParsers
     {
         public AbstractCommand parseCommand(object data)
         {
-            throw new NotImplementedException();
+            JContainer container = data as JContainer;
+
+            string commandName;
+            try
+            {
+                commandName = container.GetPropertyValue("cmd").Value<string>();
+            }
+            catch (NullReferenceException)
+            {
+                throw new FailWithFeedbackException("No cmd property specified");
+            }
+
+            return parseCommand(commandName, container);
         }
 
 
         private AbstractCommand parseCommand(string commandName, JContainer container)
         {
-            switch (commandName.ToLower())
+            switch (commandName)
             {
                 case "updBaseData":
                     {
