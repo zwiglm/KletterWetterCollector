@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseService", "BaseService\BaseService.csproj", "{EC4FABE5-468C-4A33-846A-CD02B9BA712C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseService.DataAccess", "BaseService.DataAccess\BaseService.DataAccess.csproj", "{255AA411-7056-428B-8F47-9553B26606AB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseService.Application", "BaseService.DataAccess\BaseService.Application.csproj", "{255AA411-7056-428B-8F47-9553B26606AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -7,6 +7,10 @@ using System.Web.Routing;
 
 namespace BaseService
 {
+    /// <summary>
+    /// MaZ attn: I think this is only needed for mVc - those stuff that also needs the views
+    /// 
+    /// </summary>
     public class RouteConfig
     {
         public static void RegisterRoutes(RouteCollection routes)
