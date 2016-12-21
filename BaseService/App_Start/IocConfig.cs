@@ -1,9 +1,12 @@
-﻿using BaseService.Application.ApiCommandHandlers;
+﻿using BaseService.ApiResponseBuilders;
+using BaseService.Application.ApiCommandHandlers;
 using BaseService.Configuration;
 using BaseService.Controllers;
 using BaseService.DataAccess;
 using BaseService.DataAccess.ApiCommandParsers;
 using BaseService.DataAccess.ApiCommands;
+using BaseService.DataAccess.Implementation;
+using BaseService.Interfaces;
 using StructureMap;
 using System;
 using System.Collections.Generic;
@@ -24,15 +27,17 @@ namespace BaseService.App_Start
                     RegisterCommandHandlers(x);
 
                     // Configuration
-                    x.For<IDatabaseConfiguration>().Use<WebConfiguration>();
-                    x.For<IApplicationConfiguration>().Use<WebConfiguration>();
+                    x.For<IDatabaseConfiguration>()     .Use<WebConfiguration>();
+                    x.For<IApplicationConfiguration>()  .Use<WebConfiguration>();
 
                     // Parsers
-                    x.For<BaseCommandsController>().Use<BaseCommandsController>().Ctor<ICommandParser>("commandParser").Is<BaseCommandParser>();
+                    x.For<BaseCommandsController>()     .Use<BaseCommandsController>().Ctor<ICommandParser>("commandParser").Is<BaseCommandParser>();
 
-                    // Services
+                    // Response Builders
+                    x.For<IBaseResponseBuilder>()       .Use<BaseResponseBuilder>();
 
                     // ReadStores
+                    x.For<IBaseDao>()                   .Use<BaseDao>();
                 });
 
             // Make ASP.NET MVC delegate the task of instantiating controllers and dependencies to StructureMap.

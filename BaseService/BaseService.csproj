@@ -159,6 +159,7 @@
   <ItemGroup>
     <Compile Include="ApiCommandParsers\BaseCommandParser.cs" />
     <Compile Include="ApiCommandParsers\ICommandParser.cs" />
+    <Compile Include="ApiResponseBuilders\BaseResponseBuilder.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IocConfig.cs" />

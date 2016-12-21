@@ -32,7 +32,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'MaZ|AnyCPU'">
     <OutputPath>bin\MaZ\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
@@ -56,12 +56,13 @@
     <Compile Include="Exceptions\FailWithFeedbackException.cs" />
     <Compile Include="IApplicationConfiguration.cs" />
     <Compile Include="IDatabaseConfiguration.cs" />
-    <Compile Include="DataAccess\BaseReadStore.cs" />
-    <Compile Include="Interfaces\IBaseReadStore.cs" />
+    <Compile Include="DataAccess\BaseDao.cs" />
+    <Compile Include="Interfaces\IBaseDao.cs" />
+    <Compile Include="Interfaces\IBaseResponseBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ApiResponseBuilders\" />
+    <Folder Include="Model\" />
     <Folder Include="Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

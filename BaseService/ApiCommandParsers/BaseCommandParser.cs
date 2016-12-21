@@ -34,11 +34,16 @@ namespace BaseService.DataAccess.ApiCommandParsers
         {
             switch (commandName)
             {
+                //{
+                //    "cmd": "updBaseData",
+                //    "temperatur": 24.3,
+                //    "pwrWarn": 0
+                //}
                 case "updBaseData":
                     {
                         DateTime now = DateTime.Now;
-                        decimal temp = new Decimal(24.3);
-                        short pwrWarn = 0;
+                        decimal temp = container.GetPropertyValue("temperatur").Value<decimal>();
+                        short pwrWarn = container.GetPropertyValue("pwrWarn").Value<short>();
 
                         return new UpdBaseDataCmd(now, temp, pwrWarn);
                     }
