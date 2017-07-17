@@ -18,7 +18,7 @@ namespace BaseService.Controllers
         // GET api/values/5
         public string Get(int id)
         {
-            return "value";
+            return String.Format("value {0}", id);
         }
 
         // POST api/values
