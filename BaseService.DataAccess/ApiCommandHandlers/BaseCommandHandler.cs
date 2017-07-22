@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 
 namespace BaseService.Application.ApiCommandHandlers
 {
-    public class BaseCommandHandler : IApiCmdHandle<UpdBaseDataCmd>
+    public class BaseCommandHandler : IApiCmdHandle<UpdBaseDataCmd>,
+                                      IApiCmdHandle<KwWeatherDataCmd>
     {
         private IBaseDao _baseDao;
         private IBaseResponseBuilder _baseResponseBuilder;
@@ -28,6 +29,11 @@ namespace BaseService.Application.ApiCommandHandlers
                 return _baseResponseBuilder.FailResponse("Could not writer BaseDataCommand");
             else
                 return _baseResponseBuilder.BaseDataSuccessResponse(insertedRows);
+        }
+
+        public object handleApiCmd(KwWeatherDataCmd command)
+        {
+            throw new NotImplementedException();
         }
 
     }

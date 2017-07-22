@@ -8,6 +8,7 @@ using System.Web;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
+
 namespace BaseService.DataAccess.ApiCommandParsers
 {
     public class BaseCommandParser : ICommandParser
@@ -42,10 +43,31 @@ namespace BaseService.DataAccess.ApiCommandParsers
                 case "updBaseData":
                     {
                         DateTime now = DateTime.Now;
+                        now = DateTime.Parse("2010-08-20T15:00:00.123Z", null, System.Globalization.DateTimeStyles.RoundtripKind);
+
                         decimal temp = container.GetPropertyValue("temperatur").Value<decimal>();
                         short pwrWarn = container.GetPropertyValue("pwrWarn").Value<short>();
 
                         return new UpdBaseDataCmd(now, temp, pwrWarn);
+                    }
+                case "KwFullWd":
+                    {
+                        String coreId = container.GetPropertyValue("coreid").Value<String>();
+                        String publishedAt = container.GetPropertyValue("published_at").Value<String>();
+                        String data = container.GetPropertyValue("data").Value<String>();
+                        String prtclEvent = container.GetPropertyValue("event").Value<String>();
+
+                        float temperature = container.GetPropertyValue("field1").Value<float>();
+                        float humidityRh = container.GetPropertyValue("field2").Value<float>();
+                        float pressure = container.GetPropertyValue("field3").Value<float>();
+                        float rainMM = container.GetPropertyValue("field4").Value<float>();
+                        float windKPH = container.GetPropertyValue("field5").Value<float>();
+                        float gustKPH = container.GetPropertyValue("field6").Value<float>();
+                        float windDirection = container.GetPropertyValue("field7").Value<float>();
+                        float powerStatus = container.GetPropertyValue("field8").Value<float>();
+
+                        return new KwWeatherDataCmd(coreId, publishedAt, data, prtclEvent,
+                                                    temperature, humidityRh, pressure, rainMM, windKPH, gustKPH, windDirection, powerStatus);
                     }
                 default:
                     throw new FailWithFeedbackException("Command not recognized");

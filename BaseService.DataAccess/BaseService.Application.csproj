@@ -52,6 +52,7 @@
     <Compile Include="ApiCommandHandlers\IApiCmdHandle.cs" />
     <Compile Include="ApiCommands\AbstractCommand.cs" />
     <Compile Include="ApiCommands\BaseCommand.cs" />
+    <Compile Include="ApiCommands\KwWeatherDataCmd.cs" />
     <Compile Include="ApiCommands\UpdBaseDataCmd.cs" />
     <Compile Include="Exceptions\FailWithFeedbackException.cs" />
     <Compile Include="IApplicationConfiguration.cs" />
