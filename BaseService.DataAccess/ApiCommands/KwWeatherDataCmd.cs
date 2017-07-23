@@ -10,7 +10,7 @@ namespace BaseService.DataAccess.ApiCommands
     public class KwWeatherDataCmd : BaseCommand
     {
         public String coreId;
-        public String publishedAt;
+        public DateTime publishedAt;
         public String data;
         public String prtclEvent;
 
@@ -23,7 +23,7 @@ namespace BaseService.DataAccess.ApiCommands
         public float windDirection;
         public float powerStatus;
 
-        public KwWeatherDataCmd(String coreId, String publishedAt, String data, String prtclEvent,
+        public KwWeatherDataCmd(String coreId, DateTime publishedAt, String data, String prtclEvent,
                              float temperature, float humidityRh, float pressure, float rainMM, float windKPH, float gustKPH, float windDirection, float powerStatus)
         {
             this.coreId = coreId;
@@ -40,6 +40,6 @@ namespace BaseService.DataAccess.ApiCommands
             this.windDirection = windDirection;
             this.powerStatus = powerStatus;
         }
-        
+
     }
 }

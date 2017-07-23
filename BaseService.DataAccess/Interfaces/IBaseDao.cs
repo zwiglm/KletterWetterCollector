@@ -15,5 +15,12 @@ namespace BaseService.Interfaces
         /// <param name="baseCommand"></param>
         /// <returns>number of inserted rows</returns>
         int insertBaseDataCmd(UpdBaseDataCmd baseCommand);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="weatherData"></param>
+        /// <returns></returns>
+        int insertWeatheData(KwWeatherDataCmd weatherData);
     }
 }

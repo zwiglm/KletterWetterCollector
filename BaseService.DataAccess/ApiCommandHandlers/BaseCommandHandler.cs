@@ -26,14 +26,18 @@ namespace BaseService.Application.ApiCommandHandlers
         {
             int insertedRows =_baseDao.insertBaseDataCmd(command);
             if (insertedRows == 0)
-                return _baseResponseBuilder.FailResponse("Could not writer BaseDataCommand");
+                return _baseResponseBuilder.FailResponse("Could not write BaseDataCommand");
             else
                 return _baseResponseBuilder.BaseDataSuccessResponse(insertedRows);
         }
 
         public object handleApiCmd(KwWeatherDataCmd command)
         {
-            throw new NotImplementedException();
+            int insertedRows = _baseDao.insertWeatheData(command);
+            if (insertedRows == 0)
+                return _baseResponseBuilder.FailResponse("Could not write WeatherData to DB");
+            else
+                return _baseResponseBuilder.BaseDataSuccessResponse(insertedRows);
         }
 
     }

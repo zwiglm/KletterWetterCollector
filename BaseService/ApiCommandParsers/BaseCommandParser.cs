@@ -53,7 +53,7 @@ namespace BaseService.DataAccess.ApiCommandParsers
                 case "KwFullWd":
                     {
                         String coreId = container.GetPropertyValue("coreid").Value<String>();
-                        String publishedAt = container.GetPropertyValue("published_at").Value<String>();
+                        DateTime publishedAt = container.GetPropertyValue("published_at").Value<DateTime>();
                         String data = container.GetPropertyValue("data").Value<String>();
                         String prtclEvent = container.GetPropertyValue("event").Value<String>();
 
