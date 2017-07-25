@@ -59,6 +59,7 @@
     <Compile Include="ApiCommands\KwWeatherDataCmd.cs" />
     <Compile Include="ApiCommands\UpdBaseDataCmd.cs" />
     <Compile Include="Exceptions\FailWithFeedbackException.cs" />
+    <Compile Include="GlobalConst.cs" />
     <Compile Include="IApplicationConfiguration.cs" />
     <Compile Include="IDatabaseConfiguration.cs" />
     <Compile Include="DataAccess\BaseDao.cs" />

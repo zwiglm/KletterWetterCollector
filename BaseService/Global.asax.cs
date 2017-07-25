@@ -22,6 +22,9 @@ namespace BaseService
 
             AreaRegistration.RegisterAllAreas();
 
+            // initialize Log4Net
+            KwLog4NetManager.InitializeLog4Net(Server);
+
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 
