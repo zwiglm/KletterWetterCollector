@@ -65,6 +65,19 @@ namespace BaseService.DataAccess.ApiCommandParsers
 
                         return new UpdBaseDataCmd(now, temp, pwrWarn);
                     }
+                //{
+                //  "event": "KlettWettWriteAllWD",
+                //  "data": "{\"field1\":\"25.5\",\"field2\":\"43\",\"field3\":\"97.4\",\"field4\":\"0.0\",\"field5\":\"0.0\",\"field6\":\"0.0\",\"field7\":\"0\",\"field8\":\"4.0\",}",
+                //  "published_at": "2017-07-25T17:57:40.877Z",
+                //  "coreid": "32002b000951343334363138",
+                //  "userid": "596e81faf92bae142d36278e",
+                //  "fw_version": 1,
+                //  "public": false,
+                //  "elevation": "",
+                //  "long": "",
+                //  "lat": "",
+                //  "cmd": "KwFullWd"
+                //}
                 case "KwFullWd":
                     {
                         String coreId = container.GetPropertyValue("coreid").Value<String>();
