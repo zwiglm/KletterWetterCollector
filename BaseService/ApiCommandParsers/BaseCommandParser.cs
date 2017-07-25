@@ -27,6 +27,10 @@ namespace BaseService.DataAccess.ApiCommandParsers
         public AbstractCommand parseCommand(object data)
         {
             JContainer container = data as JContainer;
+            if (_logger.IsDebugEnabled)
+            {
+                _logger.Debug(String.Format("Incomming Json-Data: {0}", container.ToString()));
+            }
 
             string commandName;
             try
@@ -63,10 +67,6 @@ namespace BaseService.DataAccess.ApiCommandParsers
                     }
                 case "KwFullWd":
                     {
-                        if (_logger.IsDebugEnabled) {
-                            _logger.Debug(String.Format("Incomming Json-Data: {0}", container.ToString()));
-                        }
-
                         String coreId = container.GetPropertyValue("coreid").Value<String>();
                         DateTime publishedAt = container.GetPropertyValue("published_at").Value<DateTime>();
                         String data = container.GetPropertyValue("data").Value<String>();
