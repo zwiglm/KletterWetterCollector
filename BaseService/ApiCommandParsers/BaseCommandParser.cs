@@ -80,10 +80,12 @@ namespace BaseService.DataAccess.ApiCommandParsers
                 //  "cmd": "KwFullWd"
                 //}
                 case "KwFullWd":
-                    {                        
+                    {
                         String coreId = container.GetPropertyValue("coreid").Value<String>();
+                        String userId = container.GetPropertyValue("userid").Value<String>();
                         DateTime publishedAt = container.GetPropertyValue("published_at").Value<DateTime>();
                         String prtclEvent = container.GetPropertyValue("event").Value<String>();
+                        int fwVersion = container.GetPropertyValue("fw_version").Value<int>();
 
                         String data = container.GetPropertyValue("data").Value<String>();
                         string[] dataPairs = data.Replace("{", "").Replace("}", "").Split(',');
@@ -97,7 +99,7 @@ namespace BaseService.DataAccess.ApiCommandParsers
                         float windDirection = float.Parse((dataPairs[6].Split(':'))[1].Replace("\"", ""), CultureInfo.InvariantCulture.NumberFormat);
                         float powerStatus = float.Parse((dataPairs[7].Split(':'))[1].Replace("\"", ""), CultureInfo.InvariantCulture.NumberFormat);
 
-                        return new KwWeatherDataCmd(coreId, publishedAt, data, prtclEvent,
+                        return new KwWeatherDataCmd(coreId, publishedAt, userId, prtclEvent, fwVersion,
                                                     temperature, humidityRh, pressure, rainMM, windKPH, gustKPH, windDirection, powerStatus);
                     }
                 default:

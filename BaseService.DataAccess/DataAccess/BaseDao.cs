@@ -63,9 +63,9 @@ namespace BaseService.DataAccess.Implementation
         {
             string sqlInsert = @"
                                 INSERT INTO tblWeather
-                                ([event], [coreid], [publishedAt], [data], [temperature], [humidity], [pressure], [rainMM], [windKPH], [gustKPH], [windDirection], [powerStatus])
+                                ([event], [coreid], [publishedAt], [prtclUserid], [prtclFwVersion], [temperature], [humidity], [pressure], [rainMM], [windKPH], [gustKPH], [windDirection], [powerStatus])
                                 OUTPUT INSERTED.Id
-                                VALUES (@event, @coreid, @publishedAt, @data, @temperature, @humidity, @pressure, @rainMM, @windKPH, @gustKPH, @windDirection, @powerStatus)
+                                VALUES (@event, @coreid, @publishedAt, @userId, @fwVersion, @temperature, @humidity, @pressure, @rainMM, @windKPH, @gustKPH, @windDirection, @powerStatus)
                                 ";
 
             int insertedRows = 0;
@@ -82,7 +82,8 @@ namespace BaseService.DataAccess.Implementation
                         command.Parameters.AddWithValue("@event", weatherData.prtclEvent);
                         command.Parameters.AddWithValue("@coreid", weatherData.coreId);
                         command.Parameters.AddWithValue("@publishedAt", weatherData.publishedAt);
-                        command.Parameters.AddWithValue("@data", weatherData.data);
+                        command.Parameters.AddWithValue("@userId", weatherData.userId);
+                        command.Parameters.AddWithValue("@fwVersion", weatherData.fwVersion);
 
                         command.Parameters.AddWithValue("@temperature", weatherData.temperature);
                         command.Parameters.AddWithValue("@humidity", weatherData.humidityRh);
