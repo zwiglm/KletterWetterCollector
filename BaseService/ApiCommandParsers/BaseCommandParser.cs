@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using log4net;
 using BaseService.Application;
+using System.Globalization;
 
 
 namespace BaseService.DataAccess.ApiCommandParsers
@@ -79,20 +80,22 @@ namespace BaseService.DataAccess.ApiCommandParsers
                 //  "cmd": "KwFullWd"
                 //}
                 case "KwFullWd":
-                    {
+                    {                        
                         String coreId = container.GetPropertyValue("coreid").Value<String>();
                         DateTime publishedAt = container.GetPropertyValue("published_at").Value<DateTime>();
-                        String data = container.GetPropertyValue("data").Value<String>();
                         String prtclEvent = container.GetPropertyValue("event").Value<String>();
 
-                        float temperature = container.GetPropertyValue("field1").Value<float>();
-                        float humidityRh = container.GetPropertyValue("field2").Value<float>();
-                        float pressure = container.GetPropertyValue("field3").Value<float>();
-                        float rainMM = container.GetPropertyValue("field4").Value<float>();
-                        float windKPH = container.GetPropertyValue("field5").Value<float>();
-                        float gustKPH = container.GetPropertyValue("field6").Value<float>();
-                        float windDirection = container.GetPropertyValue("field7").Value<float>();
-                        float powerStatus = container.GetPropertyValue("field8").Value<float>();
+                        String data = container.GetPropertyValue("data").Value<String>();
+                        string[] dataPairs = data.Replace("{", "").Replace("}", "").Split(',');
+
+                        float temperature = float.Parse((dataPairs[0].Split(':'))[1].Replace("\"", ""), CultureInfo.InvariantCulture.NumberFormat);
+                        float humidityRh = float.Parse((dataPairs[1].Split(':'))[1].Replace("\"", ""), CultureInfo.InvariantCulture.NumberFormat);
+                        float pressure = float.Parse((dataPairs[2].Split(':'))[1].Replace("\"", ""), CultureInfo.InvariantCulture.NumberFormat);
+                        float rainMM = float.Parse((dataPairs[3].Split(':'))[1].Replace("\"", ""), CultureInfo.InvariantCulture.NumberFormat);
+                        float windKPH = float.Parse((dataPairs[4].Split(':'))[1].Replace("\"", ""), CultureInfo.InvariantCulture.NumberFormat);
+                        float gustKPH = float.Parse((dataPairs[5].Split(':'))[1].Replace("\"", ""), CultureInfo.InvariantCulture.NumberFormat);
+                        float windDirection = float.Parse((dataPairs[6].Split(':'))[1].Replace("\"", ""), CultureInfo.InvariantCulture.NumberFormat);
+                        float powerStatus = float.Parse((dataPairs[7].Split(':'))[1].Replace("\"", ""), CultureInfo.InvariantCulture.NumberFormat);
 
                         return new KwWeatherDataCmd(coreId, publishedAt, data, prtclEvent,
                                                     temperature, humidityRh, pressure, rainMM, windKPH, gustKPH, windDirection, powerStatus);
@@ -101,5 +104,7 @@ namespace BaseService.DataAccess.ApiCommandParsers
                     throw new FailWithFeedbackException("Command not recognized");
             }
         }
+
+
     }
 }
